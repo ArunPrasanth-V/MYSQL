@@ -106,5 +106,5 @@ REPLACE
 # LIKE (BETTER SEARCHING) :
 > - SELECT author_fname from books **WHERE** author_fname **LIKE '%da%'**;
 > - SELECT author_fname from books **WHERE** author_fname **LIKE 'da%'**;  -- should start with **da**
-> SELECT author_fname from books  WHERE stock_quantity  LIKE '____'; --4 Underscore represent exactly 4 digit.
-> SELECT author_fname from books  WHERE title  LIKE '%\%%'; -- \ escapse char
+> - SELECT author_fname from books  WHERE stock_quantity  LIKE '____'; --4 Underscore represent exactly 4 digit.
+> - SELECT author_fname from books  WHERE title  LIKE '%\%%'; -- \ escapse char
