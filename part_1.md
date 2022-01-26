@@ -89,6 +89,22 @@ REPLACE
    - 
    > - SELECT UPPER('hello');  --LOWER()
    O/P : HELLO  
+#  DISTINCT :
+  > - SELECT DISTINCT author_lname from books;
+  > - SELECT DISTINCT author_fname,author_lname from books;
+
+# ORDER BY :
+> - SELECT released_year FROM books ORDER BY   released_year DESC;
+> - SELECT released_year FROM books ORDER BY   released_year ASC;
+> - SELECT released_year,stock_quantity ,pages FROM books ORDER BY 2 ;
+> - SELECT released_year,stock_quantity ,pages FROM books ORDER BY  author_fname,author_lname  aSC;
 
 
+# Limit :
+> - **SELECT** released_year,stock_quantity ,pages **FROM** books **ORDER BY**   author_fname,author_lname  **LIMIT** 2;
 
+# LIKE (BETTER SEARCHING) :
+> - SELECT author_fname from books **WHERE** author_fname **LIKE '%da%'**;
+> > - SELECT author_fname from books **WHERE** author_fname **LIKE 'da%'**;  -- should start with **da**
+> > SELECT author_fname from books  WHERE stock_quantity  LIKE '____'; --4 Underscore represent exactly 4 digit.
+> > SELECT author_fname from books  WHERE title  LIKE '%\%%'; -- \ escapse char
