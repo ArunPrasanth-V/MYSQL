@@ -35,7 +35,7 @@
   > - CREATE TABLE cats2(name VARCHAR(100) DEFAULT 'no name provided ', age INT DEFAULT 0);
   
   > - eg: CREATE TABLE tweet (name VARCHAR(20) ,message VARCHAR(20));
-# other commans:
+# other commands:
 
  > - show columns from tableName;  (or)  DESC tableName;  //Both are Same  DESC -describe
  > - SHOW WARNINGS;
