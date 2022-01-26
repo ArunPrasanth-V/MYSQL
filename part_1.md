@@ -60,62 +60,35 @@
 # Delete :
    > - DELETE  FROM cats WHERE name='egg';
    
- CONCAT(x,y,z,'add text aswell !')
+   > -  CONCAT(x,y,z,'add text aswell !')
 
- SELECT CONCAT_WS('--SEPARATOR--','title','author_fname,'author_lname')FROM books;
+   > -  SELECT CONCAT_WS('--SEPARATOR--','title','author_fname,'author_lname')FROM books;
 
- SELECT SUBSTRING('HELLO WORLD',1,4); --Here Index Start From 1.
- SELECT SUBSTRING('HELLO WORLD',4); --start with index 4
+  > -   SELECT SUBSTRING('HELLO WORLD',1,4); --Here Index Start From 1.
+  > -   SELECT SUBSTRING('HELLO WORLD',4); --start with index 4
 
 
- SELECT SUBSTRING('HELLO WORLD',-4);
-+-----------------------------+
-| SUBSTRING('HELLO WORLD',-4) |
-+-----------------------------+
-| ORLD                        |
-+-----------------------------+
+ > - SELECT SUBSTRING('HELLO WORLD',-4);
+     O/P : ORLD 
 
-  SELECT SUBSTRING('titlevkfjb',1,3);
-+-----------------------------+
-| SUBSTRING('titlevkfjb',1,3) |
-+-----------------------------+
-| tit                         |
-+-----------------------------+
-1 row in set (0.00 sec)
-  
- REPLACE
-  SELECT REPLACE ('HELLO WORLD','HELL','@#$');
-+--------------------------------------+
-| REPLACE ('HELLO WORLD','HELL','@#$') |
-+--------------------------------------+
-| @#$O WORLD                           |
-+--------------------------------------+
-1 row in set (0.01 sec)
+> -  SELECT SUBSTRING('titlevkfjb',1,3);
+     O/P : tit 
+
+REPLACE
+> -  SELECT REPLACE ('HELLO WORLD','HELL','@#$');
+     O/P : @#$O WORLD
 
 
 
-SELECT REVERSE('Hello World');
-+------------------------+
-| REVERSE('Hello World') |
-+------------------------+
-| dlroW olleH            |
-+------------------------+
-1 row in set (0.00 sec)
-- 
- SELECT CHAR_LENGTH('HELLO WORLD');
-+----------------------------+
-| CHAR_LENGTH('HELLO WORLD') |
-+----------------------------+
-|                         11 |
-+----------------------------+
+  > - SELECT REVERSE('Hello World');
+     O/P : dlroW olleH
+   -
+   > -  SELECT CHAR_LENGTH('HELLO WORLD');
+     O/P 11
 
-- 
-SELECT UPPER('hello');  --LOWER()
-+----------------+
-| UPPER('hello') |
-+----------------+
-| HELLO          |
-+----------------+
+   - 
+   > - SELECT UPPER('hello');  --LOWER()
+   O/P : HELLO  
 
 
 
