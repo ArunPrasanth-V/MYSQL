@@ -27,7 +27,7 @@
   In reality there is lot
   > - Varchar(size)
   > - int(size)
- # CREATE TALE :
+ # CREATE TABLE :
   > - CREATE TABLE tableName (column_name data_type, column_name data_type);
   
   > - CREATE TABLE cats2(name VARCHAR(100) NOT NULL, age INT NOT NULL);
@@ -108,3 +108,21 @@ REPLACE
 > - SELECT author_fname from books **WHERE** author_fname **LIKE 'da%'**;  -- should start with **da**
 > - SELECT author_fname from books  WHERE stock_quantity  LIKE '____'; --4 Underscore represent exactly 4 digit.
 > - SELECT author_fname from books  WHERE title  LIKE '%\%%'; -- \ escapse char
+
+
+
+# Aggregate Function :
+    
+ # Count
+  > - SELECT COUNT(*) FROM books;
+  > - SELECT COUNT(DISTINCT author_fname,author_lname) AS auth  FROM books;
+  > - SELECT  count(*) from books WHERE title  LIKE('%the%');
+  
+ # Group By :
+     Summarizes or aggregates identical data into single rows.
+  > - 
+  > 
+ 
+    
+     
+  
