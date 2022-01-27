@@ -180,3 +180,10 @@ REPLACE
    
   # ----Here when we update the the time aswell get change.--
   > -CREATE TABLE command2( content VARCHAR(100), changed_at TIMESTAMP DEFAULT NOW()  ON UPDATE NOW() );
+  > - select concat(monthname(now()),' ',date_format(now(),'%D'),' ',date_format(now(),'%h:%m')) as date;
++--------------------+
+| date               |
++--------------------+
+| January 27th 09:01 |
++--------------------+
+
