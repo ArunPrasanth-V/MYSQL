@@ -132,7 +132,7 @@ REPLACE
   
  # MIN/ MAX With Group By
   > - SELECT concat(author_fname," ",author_lname, ' ',min(released_year)) as " author first book released date" from books group by author_fname,author_lname;
-  >  - SELECT concat(author_fname," ",author_lname, ' ',max(pages)) from books  group by author_fname,author_lname;
+  > - SELECT concat(author_fname," ",author_lname, ' ',max(pages)) from books  group by author_fname,author_lname;
   
  # SUM
   > - SELECT SUM(pages) from books group by author_fname , author_lname;
@@ -141,9 +141,18 @@ REPLACE
  # AVG 
   > - SELECT avg(pages) from books group by author_fname,author_lname;
   > - SELECT concat(author_fname,' ',author_lname) as author, avg(pages) as AVG from books group by author_fname,author_lname;
-  > 
-
- 
+  > - SELECT released_year,AVG(stock_quantity) from books group by released_year;
     
-     
-  
+ # More DataTypes :
+   > -  char ,
+   > -  DECIMAL -> DECIMAL(13,2) 999.99 total 5 digit
+   > -  Float
+   > -  Double
+   
+  # Date :
+   > - 'YYYY-MM-DD'
+  # Time :
+   > - 'HH:MM:SS'
+  # DATATIME :
+   > -
+   
