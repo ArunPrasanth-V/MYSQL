@@ -169,7 +169,8 @@ REPLACE
   > - DAYOFAR(DATE )
   > - Hour(time)
   > - minitue(time)
- #  select date_format('2002-05-25 10:07:35','%d-%m-%Y') from people;
+ # --- DATA_FORMAT ---
+  > - select date_format('2002-05-25 10:07:35','%d-%m-%Y') from people;
  
  
  # Timestamp :
@@ -177,5 +178,5 @@ REPLACE
    > - select * from commit order by time_st desc;
    > - INSERT INTO commit(content) VALUE ('He will go to canada one day that will be true');
    
-  # CREATE TABLE command2( content VARCHAR(100), changed_at TIMESTAMP DEFAULT NOW()  ON UPDATE NOW() );
-  // here when we update the the time aswell get change.
+  # ----Here when we update the the time aswell get change.--
+  > -CREATE TABLE command2( content VARCHAR(100), changed_at TIMESTAMP DEFAULT NOW()  ON UPDATE NOW() );
