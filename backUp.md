@@ -155,7 +155,7 @@ REPLACE
    > - 'HH:MM:SS'  --'10:07:35'
   # DATATIME :
    > -  'YYYY-MM-DD HH:MM:SS' --'2002-05-25 10:07:35'
-   # CURDAT() -- gives current data
+   # CURDATE() -- gives current data
  
    # CURTIME()  -- gives current time
    
