@@ -1,6 +1,3 @@
-# SQL Learning
-
-
 # What is data base?
    - A Structured set of computerized data with accessible interface.
  # SQl : Structured query Language !
@@ -33,7 +30,81 @@
  # CREATE TALE :
   > - CREATE TABLE tableName (column_name data_type, column_name data_type);
   
+  > - CREATE TABLE cats2(name VARCHAR(100) NOT NULL, age INT NOT NULL);
+  
+  > - CREATE TABLE cats2(name VARCHAR(100) DEFAULT 'no name provided ', age INT DEFAULT 0);
+  
   > - eg: CREATE TABLE tweet (name VARCHAR(20) ,message VARCHAR(20));
-# other commans:
+# other commands:
 
- > - show columns from tableName;  (or)  DESC tableName;  //Both are Same  DESC -describe
+ > - show columns from tableName;  (or)  DESC tableName;  --Both are Same  DESC -describe
+ > - SHOW WARNINGS;
+ # Insert into table :
+ eg:
+ > - INSERT INTO cats(name, age) 
+ > - VALUES ('charlie',10),
+ > - VALUES ('sadie',2);
+
+
+
+
+# Read :
+  > - SELECT name, age  FROM cats;
+  > - SELECT cat_id AS id FROM cats; --Alising
+
+# Update :
+  > - UPDATE cats SET breed='Shorthair' WHERE breed='Taddy';
+  > - UPDATE cats SET name='British Shorthair' WHERE name='Ringo';
+  
+  
+# Delete :
+   > - DELETE  FROM cats WHERE name='egg';
+   
+   > -  CONCAT(x,y,z,'add text aswell !')
+
+   > -  SELECT CONCAT_WS('--SEPARATOR--','title','author_fname,'author_lname')FROM books;
+
+  > -   SELECT SUBSTRING('HELLO WORLD',1,4); --Here Index Start From 1.
+  > -   SELECT SUBSTRING('HELLO WORLD',4); --start with index 4
+
+
+ > - SELECT SUBSTRING('HELLO WORLD',-4);
+     O/P : ORLD 
+
+> -  SELECT SUBSTRING('titlevkfjb',1,3);
+     O/P : tit 
+
+REPLACE
+> -  SELECT REPLACE ('HELLO WORLD','HELL','@#$');
+     O/P : @#$O WORLD
+
+
+
+  > - SELECT REVERSE('Hello World');
+     O/P : dlroW olleH
+   -
+   > -  SELECT CHAR_LENGTH('HELLO WORLD');
+     O/P 11
+
+   - 
+   > - SELECT UPPER('hello');  --LOWER()
+   O/P : HELLO  
+#  DISTINCT :
+  > - SELECT DISTINCT author_lname from books;
+  > - SELECT DISTINCT author_fname,author_lname from books;
+
+# ORDER BY :
+> - SELECT released_year FROM books ORDER BY   released_year DESC;
+> - SELECT released_year FROM books ORDER BY   released_year ASC;
+> - SELECT released_year,stock_quantity ,pages FROM books ORDER BY 2 ;
+> - SELECT released_year,stock_quantity ,pages FROM books ORDER BY  author_fname,author_lname  aSC;
+
+
+# Limit :
+> - **SELECT** released_year,stock_quantity ,pages **FROM** books **ORDER BY**   author_fname,author_lname  **LIMIT** 2;
+
+# LIKE (BETTER SEARCHING) :
+> - SELECT author_fname from books **WHERE** author_fname **LIKE '%da%'**;
+> - SELECT author_fname from books **WHERE** author_fname **LIKE 'da%'**;  -- should start with **da**
+> - SELECT author_fname from books  WHERE stock_quantity  LIKE '____'; --4 Underscore represent exactly 4 digit.
+> - SELECT author_fname from books  WHERE title  LIKE '%\%%'; -- \ escapse char
