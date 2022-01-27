@@ -150,9 +150,32 @@ REPLACE
    > -  Double
    
   # Date :
-   > - 'YYYY-MM-DD'
+   > - 'YYYY-MM-DD' -- '2002-05-25'
   # Time :
-   > - 'HH:MM:SS'
+   > - 'HH:MM:SS'  --'10:07:35'
   # DATATIME :
-   > -
+   > -  'YYYY-MM-DD HH:MM:SS' --'2002-05-25 10:07:35'
+   # CURDAT() -- gives current data
+ 
+   # CURTIME()  -- gives current time
    
+   # NOW()   -- gives current datetime
+   
+# Formatting Dates :
+  > -  DATE = YYYY-MM-DD
+  > - DAY(DATE)
+  > - DAYNAME(DATE )
+  > - DAYOFWEEK(DATE )
+  > - DAYOFAR(DATE )
+  > - Hour(time)
+  > - minitue(time)
+ #  select date_format('2002-05-25 10:07:35','%d-%m-%Y') from people;
+ 
+ 
+ # Timestamp :
+   > - create table commit( content varchar(100),time_st TIMESTAMP DEFAULT NOW());
+   > - select * from commit order by time_st desc;
+   > - INSERT INTO commit(content) VALUE ('He will go to canada one day that will be true');
+   
+  # CREATE TABLE command2( content VARCHAR(100), changed_at TIMESTAMP DEFAULT NOW()  ON UPDATE NOW() );
+  // here when we update the the time aswell get change.
