@@ -120,8 +120,29 @@ REPLACE
   
  # Group By :
      Summarizes or aggregates identical data into single rows.
-  > - 
+  > - SELECT concat(author_fname,' ' ,author_lname), count(*) FROM books GROUP BY author_fname,author_lname;
+  > - SELECT released_year, count(*) as count FROM books GROUP BY released_year;
+
+# MIN AND MAX :
+  > - SELECT MIN(released_year) FROM books;
+  > - SELECT MAX(released_year) FROM books;
+  > - select title,pages from books where pages=(SELECT MAX(pages) from books); --bit show 
+  > - SELECT title, pages from books order by pages desc limit 1; -- fast compare to above
+  
+  
+ # MIN/ MAX With Group By
+  > - SELECT concat(author_fname," ",author_lname, ' ',min(released_year)) as " author first book released date" from books group by author_fname,author_lname;
+  >  - SELECT concat(author_fname," ",author_lname, ' ',max(pages)) from books  group by author_fname,author_lname;
+  
+ # SUM
+  > - SELECT SUM(pages) from books group by author_fname , author_lname;
+  > - SELECT concat(author_fname,' ',author_lname),SUM(pages) from books group by author_fname , author_lname;
+  
+ # AVG 
+  > - SELECT avg(pages) from books group by author_fname,author_lname;
+  > - SELECT concat(author_fname,' ',author_lname) as author, avg(pages) as AVG from books group by author_fname,author_lname;
   > 
+
  
     
      
