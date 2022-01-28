@@ -263,6 +263,7 @@ REPLACE
    ### 1) Implicit joint :
    > - select * from customer,orders; --  >>>**cross joint**<<< 
    > - select * from customer,orders where **orders.customer_id=customer.id**;   -->>>arbitary join<<<
+   > -  select first_name, sum(amount) from customers JOIN orders where first_name="arun";
    
    ### 2) Implicit inner joint : 
    > - select first_name,order_date,amount from customer,orders where orders.customer_id=customer.id;
@@ -270,10 +271,20 @@ REPLACE
    ### 2) EXPLICIT inner joint :  
    > - SELECT * FROM customer **JOIN** orders **ON** customer.id=orders.id;
    > - select concat(first_name,' ',last_name) as Name,order_date,amount from customer JOIN orders ON customer.id=orders.id;
+   > - select first_name,sum(amount) as "Total_Amount" from customers **JOIN** orders **on** customre_id=c_id **group by** c_id **order by** Total_Amount ;
 
 
-
-
+ ### 2) Left joint : 
+   > - select distinct  first_name from customers JOIN orders ON customre_id= c_id;   
+   > - SELECT 
+   > -    first_name,
+   > -    IFNULL(SUM(amount),0)
+   > -    from
+   > -    customers
+   > -    JOIN
+   > -    orders
+   > -    on
+   > -    c_id = customer_id;
 
 
 
