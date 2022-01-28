@@ -228,5 +228,52 @@ REPLACE
          2) one to many
          3) manu t0 one
          
+  # 1: MANY:
+     eg: customers & orders
+      - > cutomers have many order but that many order belong to one customer.
+      
+      
+      
+  # Customers and orders
+     > - CREATE TABLE customer
+    (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      first_name VARCHAR(20),
+     last_name VARCHAR(20),
+      email VARCHAR(50)
+     );
+
+
+
+  > -   CREATE TABLE orders(
+   id INT AUTO_INCREMENT PRIMARY KEY,
+    order_date DATE,
+    amount DECIMAL(8,2),
+    customer_id INT,
+    FOREIGN KEY(customer_id) REFERENCES customer(id)
+    );
+  
+  
+  
+  > - SELECT * from orders where customer_id= (select id from customer where last_name="George");
+  
+  
+  
+  # Joint :
+   ### 1) Implicit joint :
+   > - select * from customer,orders; --  >>>**cross joint**<<< 
+   > - select * from customer,orders where **orders.customer_id=customer.id**;   -->>>arbitary join<<<
+   
+   ### 2) Implicit inner joint : 
+   > - select first_name,order_date,amount from customer,orders where orders.customer_id=customer.id;
+   
+   ### 2) EXPLICIT inner joint :  
+   > - SELECT * FROM customer **JOIN** orders **ON** customer.id=orders.id;
+   > - select concat(first_name,' ',last_name) as Name,order_date,amount from customer JOIN orders ON customer.id=orders.id;
+
+
+
+
+
 
 
