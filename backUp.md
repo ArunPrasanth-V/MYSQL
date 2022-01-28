@@ -181,9 +181,40 @@ REPLACE
   # ----Here when we update the the time aswell get change.--
   > -CREATE TABLE command2( content VARCHAR(100), changed_at TIMESTAMP DEFAULT NOW()  ON UPDATE NOW() );
   > - select concat(monthname(now()),' ',date_format(now(),'%D'),' ',date_format(now(),'%h:%m')) as date;
-+--------------------+
-| date               |
-+--------------------+
-| January 27th 09:01 |
-+--------------------+
+  > - O/P : January 27th 09:01
 
+
+# LOGICAL OPERATORS :
+  > - SELECT title,released_year from books where released_year **!=** 2013 
+  > - select title from books where title **not like** '% %';
+  > - select title,released_year from books where released_year **>=** 2000;
+  > - select 99>1 | 29 |1 ;
+  > - select 'a'>='A';  -- 0
+  > - select 'A'>='a';  -- 1
+  > - select 'A'>'a';   --0
+  > - select 'b'> 'a';  --1
+  > - select author_fname,author_lname,released_year from books where author_fname='dave' **&&** author_lname='eggers' **&&** released_year>2010 ;
+  
+  > - select title, author_fname,author_lname,released_year from books where released_year>2010 **||** author_fname='dave'&&author_lname='eggers'
+  > - select title , released_year from books where released_year  **between** 2000 **and** 2013;
+  > - select title , released_year from books where released_year  **not between** 2000 **and** 2013;
+  > - select **cast**('2022-01-28' as datetime);
+  > - Select title,author_lname from books where author_lname **in** ('carver','lahiri');
+  > - Select title,author_lname from books where author_lname **not in** ('carver','lahiri');
+  > - select released_year from books where  released_year **%** 2 **!=** 0 ;
+
+
+
+# Case Statement :
+  > - select title , released_year
+    -> **case**
+    ->  **when** released_year >= 2000 **then** 'Modern Lit'
+    ->  **else** '20th Century Lit'
+    -> **end** as genre
+    -> from books;
+    
+    
+   > - select title,stock_quantity , 
+   > case when stock_quantity between 0 and 50 then'1*' 
+   > when stock_quantity between 51 and 100 then "2*" 
+   > else '3*' end as Stock from books; 
