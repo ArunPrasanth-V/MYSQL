@@ -206,15 +206,15 @@ REPLACE
 
 
 # Case Statement :
-  > - select title , released_year
-    -> **case**
-    ->  **when** released_year >= 2000 **then** 'Modern Lit'
-    ->  **else** '20th Century Lit'
-    -> **end** as genre
-    -> from books;
+    > - select title , released_year
+    > - **case**
+    > - **when** released_year >= 2000 **then** 'Modern Lit'
+    > - **else** '20th Century Lit'
+    > - **end** as genre
+    > - from books;
     
     
    > - select title,stock_quantity , 
-   > case when stock_quantity between 0 and 50 then'1*' 
-   > when stock_quantity between 51 and 100 then "2*" 
-   > else '3*' end as Stock from books; 
+   > - case when stock_quantity between 0 and 50 then'1*' 
+   > - when stock_quantity between 51 and 100 then "2*" 
+   > - else '3*' end as Stock from books; 
