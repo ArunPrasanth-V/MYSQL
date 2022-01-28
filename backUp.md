@@ -221,3 +221,12 @@ REPLACE
 
 
 
+
+
+# Relationship and joins :
+         1) one to one 
+         2) one to many
+         3) manu t0 one
+         
+
+
