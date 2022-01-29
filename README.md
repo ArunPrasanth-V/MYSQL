@@ -181,4 +181,123 @@ REPLACE
   # ----Here when we update the the time aswell get change.--
   > -CREATE TABLE command2( content VARCHAR(100), changed_at TIMESTAMP DEFAULT NOW()  ON UPDATE NOW() );
   > - select concat(monthname(now()),' ',date_format(now(),'%D'),' ',date_format(now(),'%h:%m')) as date;
-  > - o/p : January 27th 09:01 
+  > - O/P : January 27th 09:01
+
+
+# LOGICAL OPERATORS :
+  > - SELECT title,released_year from books where released_year **!=** 2013 
+  > - select title from books where title **not like** '% %';
+  > - select title,released_year from books where released_year **>=** 2000;
+  > - select 99>1 | 29 |1 ;
+  > - select 'a'>='A';  -- 0
+  > - select 'A'>='a';  -- 1
+  > - select 'A'>'a';   --0
+  > - select 'b'> 'a';  --1
+  > - select author_fname,author_lname,released_year from books where author_fname='dave' **&&** author_lname='eggers' **&&** released_year>2010 ;
+  
+  > - select title, author_fname,author_lname,released_year from books where released_year>2010 **||** author_fname='dave'&&author_lname='eggers'
+  > - select title , released_year from books where released_year  **between** 2000 **and** 2013;
+  > - select title , released_year from books where released_year  **not between** 2000 **and** 2013;
+  > - select **cast**('2022-01-28' as datetime);
+  > - Select title,author_lname from books where author_lname **in** ('carver','lahiri');
+  > - Select title,author_lname from books where author_lname **not in** ('carver','lahiri');
+  > - select released_year from books where  released_year **%** 2 **!=** 0 ;
+
+
+
+# Case Statement :
+  > - select title , released_year
+  > - **case**
+  > - **when** released_year >= 2000 **then** 'Modern Lit'
+  > - **else** '20th Century Lit'
+  > - **end** as genre
+  > - from books;
+    
+    
+   > - select title,stock_quantity , 
+   > - case when stock_quantity <=50 then'1*' 
+   > - when stock_quantity <=100 then "2*" 
+   > - else '3*' end as Stock from books; 
+
+
+
+
+
+# Relationship and joins :
+         1) one to one 
+         2) one to many
+         3) manu t0 one
+         
+  # 1: MANY:
+     eg: customers & orders
+      - > cutomers have many order but that many order belong to one customer.
+      
+      
+      
+  # Customers and orders
+     > - CREATE TABLE customer
+    (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      first_name VARCHAR(20),
+     last_name VARCHAR(20),
+      email VARCHAR(50)
+     );
+
+
+
+  > -   CREATE TABLE orders(
+   id INT AUTO_INCREMENT PRIMARY KEY,
+    order_date DATE,
+    amount DECIMAL(8,2),
+    customer_id INT,
+    FOREIGN KEY(customer_id) REFERENCES customer(id)
+    );
+  
+  
+  
+  > - SELECT * from orders where customer_id= (select id from customer where last_name="George");
+  
+  
+  
+  # Join :
+   ### 1) Implicit join :
+   > - select * from customer,orders; --  >>>**cross joint**<<< 
+   > - select * from customer,orders where **orders.customer_id=customer.id**;   -->>>arbitary join<<<
+   > -  select first_name, sum(amount) from customers JOIN orders where first_name="arun";
+   
+   ### 2) Implicit inner joint : 
+   > - select first_name,order_date,amount from customer,orders where orders.customer_id=customer.id;
+   
+   ### 2) EXPLICIT inner join :  
+   > - SELECT * FROM customer **JOIN** orders **ON** customer.id=orders.id;
+   > - select concat(first_name,' ',last_name) as Name,order_date,amount from customer JOIN orders ON customer.id=orders.id;
+   > - select first_name,sum(amount) as "Total_Amount" from customers **JOIN** orders **on** customre_id=c_id **group by** c_id **order by** Total_Amount ;
+
+
+ ### 2) Left join: 
+   > - select distinct  first_name from customers JOIN orders ON customre_id= c_id;   
+   > - SELECT 
+   > -    first_name,
+   > -    IFNULL(SUM(amount),0)
+   > -    from
+   > -    customers
+   > -    JOIN
+   > -    orders
+   > -    on
+   > -    c_id = customer_id;
+
+  ### 3) Right join :
+   > - SELECT c_id,name,max(order_date) last_buy ,sum(price)as Price from customers **RIGHT JOIN** orders  on c_id= customers.id group by c_id;
+
+### If the record in the customer get deleted then orders aswell to be deleted mean
+  the table creation is like in orders table :
+  
+   > - CREATE TABLE orders(
+   > - id INT AUTO_INCREMENT PRIMARY KEY,
+   > - order_date DATE,
+   > - amount DECIMAL(8,2),
+   > - customer_id INT,
+   > - FOREIGN KEY(customer_id) 
+   > -  REFERENCES customer(id)
+   > -  ON DELETE CASCADE
+   > - );
