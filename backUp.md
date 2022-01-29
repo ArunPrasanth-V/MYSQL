@@ -297,8 +297,10 @@ REPLACE
    > - order_date DATE,
    > - amount DECIMAL(8,2),
    > - customer_id INT,
-   > - FOREIGN KEY(customer_id) 
+   > - **FOREIGN KEY(customer_id) 
    > -  REFERENCES customer(id)
-   > -  ON DELETE CASCADE
+   > -  ON DELETE CASCADE**
    > - );
+
+
 
