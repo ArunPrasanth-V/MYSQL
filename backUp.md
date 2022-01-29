@@ -289,7 +289,7 @@ REPLACE
   ### 3) Right join :
    > - SELECT c_id,name,max(order_date) last_buy ,sum(price)as Price from customers **RIGHT JOIN** orders  on c_id= customers.id group by c_id;
 
-### If the record in the customer get deleted then orders aswell to be deleted mean
+### If the record in the customer get deleted then orders(perticular customer) aswell to be deleted mean
   the table creation is like in orders table :
   
    > - CREATE TABLE orders(
@@ -302,5 +302,41 @@ REPLACE
    > -  ON DELETE CASCADE**
    > - );
 
+# MANY : MANY
+   > - eg :
+   >  -  Books <-> Authors
+   >  - Students <-> Classes (in foreign)
+   >  - Blog Post <-> Tags 
+#  reviewers 
+> CREATE TABLE reviewers  <br /> 
+> (<br /> 
+>    id INT AUTO_INCREMENT PRIMARY KEY,<br /> 
+>    first_name VARCHAR(20),<br /> 
+>    last_name VARCHAR(20)<br /> 
+>)<br /> 
+# series
+>CREATE TABLE series <br />  
+>(<br /> 
+ >   id INT PRIMARY KEY AUTO_INCREMENT,<br /> 
+ >  title VARCHAR(100),<br /> 
+ >   released_year year(4),<br /> 
+ >   genre VARCHAR(20)<br /> 
+>)<br /> 
+# reviews
+>CREATE TABLE reviews<br /> 
+>(<br /> 
+  >  id INT PRIMARY KEY AUTO_INCREMENT,<br /> 
+  >  rating DECIMAL(2,1),<br /> 
+  >  reviewer_id INT,<br /> 
+  >  series_id INT,<br /> 
+  >  FOREIGN KEY(reviewer_id )    REFERENCES reviewers (id),<br /> 
+  >  FOREIGN KEY(series_id)    REFERENCES series(id)<br /> 
+>)
 
-
+     
+   
+ ### query 
+  >  select genre,ROUND(avg(rating),2) as rating from series <br /> 
+  >  join reviews on series.id=series_id <br /> 
+  >  group by genre;<br /> 
+ 
