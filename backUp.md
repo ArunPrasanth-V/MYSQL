@@ -338,5 +338,17 @@ REPLACE
  ### query 
   >  select genre,ROUND(avg(rating),2) as rating from series <br /> 
   >  join reviews on series.id=series_id <br /> 
-  >  group by genre;<br /> 
- 
+  >  group by genre;<br/> 
+
+<br/> 
+<br/> 
+<br/> 
+
+> - select 
+> - title, concat(first_name,' ',last_name),rating
+> -   from reviews
+> -    join reviewers
+> -      on reviewers.id= reviews.reviewer_id
+> - join series
+> -      on reviews.series_id = series.id
+> - order by title;
