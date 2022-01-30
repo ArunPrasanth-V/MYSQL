@@ -352,3 +352,18 @@ REPLACE
 > - join series
 > -      on reviews.series_id = series.id
 > - order by title;
+
+
+
+
+
+
+
+> - select username,
+> -        count(*) as num_like 
+> -from users
+> - join likes 
+> -      on likes.user_id =users.id
+> - group by user_id
+> - HAVING num_like =(select count(*) from photo);
+
