@@ -341,8 +341,7 @@ REPLACE
   >  group by genre;<br/> 
 
 <br/> 
-<br/> 
-<br/> 
+
 
 > - select 
 > - title, concat(first_name,' ',last_name),rating
@@ -352,9 +351,6 @@ REPLACE
 > - join series
 > -      on reviews.series_id = series.id
 > - order by title;
-
-
-
 
 
 
