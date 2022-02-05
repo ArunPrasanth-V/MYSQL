@@ -363,3 +363,11 @@ REPLACE
 > - group by user_id
 > - HAVING num_like =(select count(*) from photo);
 
+
+
+
+
+
+
+# Window Function :
+
