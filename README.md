@@ -177,11 +177,13 @@ REPLACE
    > - create table commit( content varchar(100),time_st TIMESTAMP DEFAULT NOW());
    > - select * from commit order by time_st desc;
    > - INSERT INTO commit(content) VALUE ('He will go to canada one day that will be true');
-   
+  
+  
   # ----Here when we update the the time aswell get change.--
   > -CREATE TABLE command2( content VARCHAR(100), changed_at TIMESTAMP DEFAULT NOW()  ON UPDATE NOW() );
   > - select concat(monthname(now()),' ',date_format(now(),'%D'),' ',date_format(now(),'%h:%m')) as date;
   > - O/P : January 27th 09:01
+
 
 
 # LOGICAL OPERATORS :
@@ -363,3 +365,7 @@ REPLACE
 > - group by user_id
 > - HAVING num_like =(select count(*) from photo);
 
+
+
+
+# Window Function :
