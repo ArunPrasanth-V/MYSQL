@@ -1,8 +1,8 @@
 # What is data base?
    - A Structured set of computerized data with accessible interface.
  # SQl : Structured query Language !
-    - where SQL is a the talk to Database.
-    There are different type like
+    - How SQL is talk to Database.
+    There are different ways using query language's like
         - MYSQL
         - Postgresql
         - oracle
