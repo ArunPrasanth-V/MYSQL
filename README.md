@@ -365,7 +365,8 @@ REPLACE
 > - group by user_id
 > - HAVING num_like =(select count(*) from photo);
 
+# other Function:
 
-
+> - datediff(d1.Date, d2.Date)=1
 
 # Window Function :
