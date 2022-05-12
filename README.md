@@ -6,7 +6,7 @@
         - MYSQL
         - Postgresql
         - oracle
-        - etc.,
+        - etc..,
 # What makes the DBMS unique ?
    - Feature they offer not the language.
    - like how faster, secure and so on.
