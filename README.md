@@ -3,9 +3,9 @@
  # SQl : Structured query Language !
     - How SQL is talk to Database.
     There are different ways using query language's like
-        - MYSQL
-        - Postgresql
-        - oracle
+        - MYSQL,
+        - Postgresql,
+        - oracle,
         - etc..,
 # What makes the DBMS unique ?
    - Feature they offer not the language.
